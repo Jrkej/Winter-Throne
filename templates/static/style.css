@@ -1,0 +1,104 @@
+body{
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  background: url(bg.png) no-repeat,url(left.jpg) repeat;
+  background-size: 1400px;
+  color: rgb(255, 238, 0);
+  text-align: center;
+}
+font
+{
+color: rgb(0, 0, 0);
+font-size: 100px;
+font-family: cursive;
+font-variant: initial;
+transition: .25s;
+
+}
+p
+{
+  color: rgb(6, 144, 236);
+  font-size: 18px;
+  font-weight: 200;
+  font-family: cursive;
+  transition: .25s;
+
+}
+h1
+{
+  color: silver;
+  font-style: inherit;
+  font-family: serif;
+  font-size: 40px;
+  transition: .25s;
+
+}
+h2
+{
+  color: brown;
+  font-family: cursive;
+  transition: .25s;
+
+  
+}
+h3
+{
+  color: yellow;
+  font-weight: bold;
+  font-style: unset;
+  font-size: 20px;
+  transition: .25s;
+
+}
+::-webkit-scrollbar {
+  width: 15px;
+}
+::-webkit-scrollbar-thumb {
+  background:rgb(0, 58, 167);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px rgb(241, 8, 8);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+  border-radius: 10px;
+}
+.box{
+padding: 45px;
+text-align: center;
+background: rgb(0, 255, 234);
+color: blue;
+border: 20px solid rgb(9, 243, 1);
+font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+font-style: normal;
+border-style: double;
+border-top-style: ridge;
+border-bottom-style: ridge;
+border-top-color: gold;
+border-bottom-color: gold;
+}
+h2:hover
+{
+  font-size: 28px;
+  transition: .25s;
+
+}
+font:hover
+{
+  font-size: 110px;
+  transition: .25s;
+
+}
+h1:hover
+{
+  font-size: 45px;
+  transition: .25s;
+}
+h3:hover{
+  font-size: 28px;
+  transition: .25s;
+  color: red;
+}

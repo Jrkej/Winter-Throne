@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/r_style.css">
+    <link rel="icon" href="icon.jpg" type="image/jpg">
+    <title>Winter Throne Verification</title>
+</head>
+<body>
+        <font size = 500>Winter Throne</font> 
+        <p>If you haven't Register yet so first register and then verify.</p>
+        <form class = "box" action="#" method="post">
+            <input type="text" name = "id" placeholder="Enter Valid UserName/NickName">
+            <input type="text" name="otp" placeholder="Enter OTP">
+            {% if voting == False %}
+                <h2>Vote for your favourite Bot programming...</h2>
+                <input type="radio" name="vote" placeholder="" value="fantastic-bits" id="f">
+                <label for="f"><header>Fantastic Bits</header></label>
+                <input type="radio" name="vote" placeholder="" value="tulips-and-daisies" id="o">
+                <label for="o"><header>Tulips and Daisies</header></label>
+                <input type="radio" name="vote" placeholder="" value="a-code-of-ice-and-fire" checked id="a">
+                <label for="a"><header>A code of Ice and Fire</header></label>
+            {% endif %}
+            <input type="submit" name = "sub" value="submit">
+
+
+        </form>
+</body>
+</html>

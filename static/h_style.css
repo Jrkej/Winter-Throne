@@ -1,0 +1,107 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background: url(bg.png) no-repeat,url(left.jpg) repeat;
+    background-size: 1400px;
+    color: rgb(255, 238, 0);
+    text-align: center;
+  }
+  font
+{
+color: rgb(0, 0, 0);
+font-size: 100px;
+font-family: cursive;
+transition: .25s;
+font-variant: initial;
+}
+::-webkit-scrollbar {
+  width: 15px;
+}
+::-webkit-scrollbar-thumb {
+  background:rgb(0, 58, 167);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px rgb(241, 8, 8);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+  border-radius: 10px;
+}
+p
+{
+  color: rgb(6, 144, 236);
+  font-size: 18px;
+  font-weight: 200;
+  font-family: cursive;
+  transition: .25s;
+
+}
+h1
+{
+  color: silver;
+  font-style: inherit;
+  font-family: serif;
+  font-size: 40px;
+}
+h2
+{
+  color: rgb(247, 99, 1);
+  font-family: cursive;
+  transition: .25s;
+
+}
+h3
+{
+  color: yellow;
+  font-weight: bold;
+  font-style: unset;
+  font-size: 20px;
+}
+  .box{
+  padding: 45px;
+  text-align: center;
+  color: blue;
+  }
+  .box input[type = "submit"]{
+    border:0;
+    background: #b8d806;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid #2ecc71;
+    padding: 14px 40px;
+    outline: none;
+    color: white;
+    border-radius: 24px;
+    transition: .25s;
+    cursor: pointer;
+    font-family: cursive;
+    font-feature-settings: "vrt2";
+  }
+  .box input[type = "submit"]:hover{
+    padding: 20px 50px;
+    background: #01ccbb;
+    border: 10px solid blue;
+    transition: .25s;
+  }
+  h2:hover
+{
+  font-size: 28px;
+  transition: .25s;
+
+}
+p:hover
+{
+  font-size: 21px;
+  transition: .25s;
+}
+font:hover
+{
+  font-size: 110px;
+  transition: .25s;
+
+}
+  
