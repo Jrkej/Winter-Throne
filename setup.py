@@ -9,7 +9,7 @@ bot_programming = "fantastic-bits"
 DATABASE_URL = os.environ['DATABASE_URL']
 app = Flask(__name__)
 info=[]
-final=[]
+first=final=[]
 def check_time(tn):
     date = 10
     month = 10
@@ -46,7 +46,27 @@ def check_end_time(tn):
     if minute <= minute_now:
         return True
     return False
+def check_re_time(tn):
+    date = 13
+    month = 10
+    hour = 5
+    minute = 0
+    date_today = int(tn.strftime("%d"))
+    month_now = int(tn.strftime("%m"))
+    hour_now = int(tn.strftime("%H"))
+    minute_now = int(tn.strftime("%M"))
+    date+=month*30
+    hour+=date*24
+    minute+=hour*60
+    date_today+=month_now*30
+    hour_now+=date_today*24
+    minute_now+=hour_now*60
+    if minute <= minute_now:
+        return True
+    return False
 def get_rankings(bot):
+    global first
+    global final
     Leaderboard=[]
     leagues = ["legend","gold","silver","bronze","wood1","wood2","wood3"]
     for name in leagues:
@@ -56,6 +76,13 @@ def get_rankings(bot):
             print(name,len(cg.json()['users']))
         except:
             pass
+    print(len(first),len(final))
+    if check_end_time(datetime.datetime.now()) == False:
+        final=Leaderboard
+    else:
+        return final
+    if check_time(datetime.datetime.now()) == False:
+        first=Leaderboard
     return Leaderboard
 def createvoterlist():
     print("creating table")
@@ -128,6 +155,11 @@ def retrieveUsers():
     users = cur.fetchall()
     con.close()
     return users
+def initial_rank(user):
+    for cgdata in first:
+        if cgdata['pseudo'] == user:
+            return cgdata['rank']
+    return len(final)
 def scrape_data(part):
     global info
     participants=[]
@@ -156,14 +188,13 @@ def scrape_data(part):
                 progress = cgdata['percentage']
                 if progress != 100:
                     sub="yes"
-                data.append([username,cgrank,lerank,points,league,language,country,sub,progress])
+                rank_progress=initial_rank(cgdata['pseudo'])-cgrank
+                data.append([username,cgrank,lerank,points,league,language,country,sub,progress,rank_progress])
         except:
             continue
         data.sort(key = lambda a:a[1])
     for p in range(len(data)):
-        info.append([p+1,data[p][0],data[p][1],data[p][2],data[p][3],data[p][4],data[p][5],data[p][6],data[p][7],data[p][8]])
-    if check_end_time(datetime.datetime.now()) == False:
-        final=info
+        info.append([p+1,data[p][0],data[p][1],data[p][2],data[p][3],data[p][4],data[p][5],data[p][6],data[p][7],data[p][8],data[p][9]])
 @app.route("/")
 def main():
     try:
@@ -190,6 +221,8 @@ def registeration():
     if request.method == "GET":
         return render_template("register.html",voting=check_time(datetime.datetime.now()))
     else:
+        if check_re_time(datetime.datetime.now()):
+            return render_template("Error.html",code="You are late registration closed....")
         name = request.form['id']
         try:
             vote = request.form['vote']
@@ -222,15 +255,17 @@ def leaderboard():
         bo=bot_programming_getter()
         msg=f"The Contest is About {bo}"
         p=len(set(part))
+        end=""
+        if check_end_time(datetime.datetime.now()):
+            end=".Contest Ended."
         print(check_time(datetime.datetime.now()))
+        print(check_end_time(datetime.datetime.now()))
         if check_time(datetime.datetime.now()) == False:
             msg="Bot programming is a suspense.."
             return render_template("leaderboard.html",message="Total registered players = "+str(p),msg=msg)
-        if check_end_time(datetime.datetime.now()):
-            info=final
-        return render_template("leaderboard.html",players = info,message="Total registered players = "+str(p),msg=msg)
-    except:
-        return render_template("Error.html",code="Error in retrieving users or taking data from CG")
+        return render_template("leaderboard.html",players = info,message="Total registered players = "+str(p)+end,msg=msg)
+    except Exception as e:
+        return render_template("Error.html",code=f"Error in retrieving users or taking data from CG,error = {e}")
 @app.route("/data")
 def data():
     try:
