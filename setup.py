@@ -276,8 +276,8 @@ def scrape_data(part):
                     sub="yes"
                 rank_progress=initial_rank(cgdata['pseudo'],leaderboard)-cgrank
                 data.append([username,cgrank,lerank,points,league,language,country,sub,progress,rank_progress])
-        except:
-            continue
+        except Exception as e:
+            print(e)
         data.sort(key = lambda a:a[1])
     for p in range(len(data)):
         info.append([p+1,data[p][0],data[p][1],data[p][2],data[p][3],data[p][4],data[p][5],data[p][6],data[p][7],data[p][8],data[p][9]])
