@@ -139,20 +139,14 @@ def createfirstleaderboard():
     print("creating table")
     con = psycopg2.connect(DATABASE_URL, sslmode='require')
     cur=con.cursor()
-    table="""
-        CREATE TABLE initial_rank (
-            id TEXT
-            leaderboard TEXT
-        )
-        """
-    cur.execute(table)
+    cur.execute("CREATE TABLE initial_rank(id TEXT,leaderboard TEXT)")
+    print("created table")
     con.commit()
     cur=con.cursor()
     l=str_leaderboard()
     sqlite_insert_with_param = f"INSERT INTO initial_rank(id,leaderboard) VALUES ('a','{l}');"
     cur.execute(sqlite_insert_with_param)
     con.commit()
-    print("created table")
 
 def createfinalleaderboard():
     print("creating table")
@@ -166,11 +160,11 @@ def createfinalleaderboard():
         """
     cur.execute(table)
     con.commit()
+    print("created table")
     cur=con.cursor()
     sqlite_insert_with_param = f"INSERT INTO initial_rank(id,leaderboard) VALUES ('a','a');"
     cur.execute(sqlite_insert_with_param)
     con.commit()
-    print("created table")
 
 def get_final():
     con = psycopg2.connect(DATABASE_URL, sslmode='require')
