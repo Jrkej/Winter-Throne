@@ -36,7 +36,7 @@ def check_time(tn):
     date = 22
     month = 9
     hour = 6
-    minute = 41
+    minute = 47
     date_today = int(tn.strftime("%d"))
     month_now = int(tn.strftime("%m"))
     hour_now = int(tn.strftime("%H"))
@@ -55,7 +55,7 @@ def check_end_time(tn):
     date = 22
     month = 9
     hour = 6
-    minute = 43
+    minute = 50
     date_today = int(tn.strftime("%d"))
     month_now = int(tn.strftime("%m"))
     hour_now = int(tn.strftime("%H"))
@@ -74,7 +74,7 @@ def check_re_time(tn):
     date = 22
     month = 9
     hour = 6
-    minute = 45
+    minute = 49
     date_today = int(tn.strftime("%d"))
     month_now = int(tn.strftime("%m"))
     hour_now = int(tn.strftime("%H"))
@@ -169,7 +169,7 @@ def get_final():
     s=a.split()
     r=[]
     for i in s:
-        r.append([i.split("|")])
+        r.append(i.split("|"))
     return r
 
 def createvoterlist():
