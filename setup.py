@@ -234,7 +234,7 @@ def retrieveUsers():
 def initial_rank(user,curr_leaderboard):
     con = psycopg2.connect(DATABASE_URL, sslmode='require')
     cur = con.cursor()
-    cur.execute("SELECT leaderboard FROM initan_rank")
+    cur.execute("SELECT leaderboard FROM initial_rank")
     l = cur.fetchall()
     con.close()
     l=l.split()
