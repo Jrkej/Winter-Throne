@@ -35,8 +35,8 @@ def bot_programming_getter():
 def check_time(tn):
     date = 22
     month = 9
-    hour = 5
-    minute = 0
+    hour = 6
+    minute = 30
     date_today = int(tn.strftime("%d"))
     month_now = int(tn.strftime("%m"))
     hour_now = int(tn.strftime("%H"))
@@ -54,8 +54,8 @@ def check_time(tn):
 def check_end_time(tn):
     date = 22
     month = 9
-    hour = 5
-    minute = 15
+    hour = 6
+    minute = 35
     date_today = int(tn.strftime("%d"))
     month_now = int(tn.strftime("%m"))
     hour_now = int(tn.strftime("%H"))
@@ -73,8 +73,8 @@ def check_end_time(tn):
 def check_re_time(tn):
     date = 22
     month = 9
-    hour = 5
-    minute = 10
+    hour = 6
+    minute = 40
     date_today = int(tn.strftime("%d"))
     month_now = int(tn.strftime("%m"))
     hour_now = int(tn.strftime("%H"))
