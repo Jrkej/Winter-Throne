@@ -165,7 +165,9 @@ def get_final():
     cur=con.cursor()
     cur.execute("SELECT leaderboard FROM final_rank")
     a=cur.fetchall()
+    a=a[0]
     s=a.split()
+    print("splited")
     r=[]
     for i in s:
         r.append([i.split("|")])
