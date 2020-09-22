@@ -156,7 +156,7 @@ def createfinalleaderboard():
     con.commit()
     print("created table")
     cur=con.cursor()
-    sqlite_insert_with_param = f"INSERT INTO initial_rank(id,leaderboard) VALUES ('a','a');"
+    sqlite_insert_with_param = f"INSERT INTO final_rank(id,leaderboard) VALUES ('a','a');"
     cur.execute(sqlite_insert_with_param)
     con.commit()
 
