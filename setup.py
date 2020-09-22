@@ -117,7 +117,7 @@ def update_first():
     con = psycopg2.connect(DATABASE_URL, sslmode='require')
     cur=con.cursor()
     l=str_leaderboard()
-    sqlite_insert_with_param = f"UPDATE initial_rank SET leaderboard = '{l}' WHERE id = 'a' );"
+    sqlite_insert_with_param = f"UPDATE initial_rank SET leaderboard = '{l}' WHERE id = 'a';"
     cur.execute(sqlite_insert_with_param)
     con.commit()
 
@@ -131,7 +131,7 @@ def update_final(save):
     a=a[:-1]
     con = psycopg2.connect(DATABASE_URL, sslmode='require')
     cur=con.cursor()
-    sqlite_insert_with_param=f"UPDATE final_rank SET leaderboard = '{a}' WHERE id='a'"
+    sqlite_insert_with_param=f"UPDATE final_rank SET leaderboard = '{a}' WHERE id='a';"
     cur.execute(sqlite_insert_with_param)
     con.commit()
 
