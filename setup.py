@@ -96,7 +96,6 @@ def get_rankings(bot):
         try:
             cg = requests.post('https://www.codingame.com/services/Leaderboards/getFilteredPuzzleLeaderboard',json = [bot,"c96627d7b482084183f526c125ae497b","global",{"active":True,"column":"LEAGUE","filter":name}]) 
             Leaderboard.extend(cg.json()['users'])
-            print(name,len(cg.json()['users']))
         except:
             pass
     return Leaderboard
@@ -168,7 +167,6 @@ def get_final():
     a=a[0]
     a=a[0]
     s=a.split()
-    print("splited")
     r=[]
     for i in s:
         r.append([i.split("|")])
@@ -283,10 +281,12 @@ def scrape_data(part):
         data.sort(key = lambda a:a[1])
     for p in range(len(data)):
         info.append([p+1,data[p][0],data[p][1],data[p][2],data[p][3],data[p][4],data[p][5],data[p][6],data[p][7],data[p][8],data[p][9]])
+    print(info)
     if check_end_time(datetime.datetime.now()) == False:
         update_final(info)
     else:
         info=get_final()
+    print(info)
 
 @app.route("/")
 def main():
