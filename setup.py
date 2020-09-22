@@ -33,8 +33,8 @@ def bot_programming_getter():
     return ret
 
 def check_time(tn):
-    date = 10
-    month = 10
+    date = 22
+    month = 9
     hour = 5
     minute = 0
     date_today = int(tn.strftime("%d"))
@@ -52,10 +52,10 @@ def check_time(tn):
     return False
 
 def check_end_time(tn):
-    date = 17
-    month = 10
+    date = 22
+    month = 9
     hour = 5
-    minute = 0
+    minute = 15
     date_today = int(tn.strftime("%d"))
     month_now = int(tn.strftime("%m"))
     hour_now = int(tn.strftime("%H"))
@@ -71,10 +71,10 @@ def check_end_time(tn):
     return False
 
 def check_re_time(tn):
-    date = 13
-    month = 10
+    date = 22
+    month = 9
     hour = 5
-    minute = 0
+    minute = 10
     date_today = int(tn.strftime("%d"))
     month_now = int(tn.strftime("%m"))
     hour_now = int(tn.strftime("%H"))
