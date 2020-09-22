@@ -300,7 +300,7 @@ def main():
     except:
         print("Leaderboard table is there")
     try:
-        createtablefinalleaderboard()
+        createfinalleaderboard()
     except:
         print("Final leaderboard table is already there")
     return redirect(url_for("home"))
