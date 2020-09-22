@@ -33,10 +33,10 @@ def bot_programming_getter():
     return ret
 
 def check_time(tn):
-    date = 22
-    month = 9
-    hour = 6
-    minute = 52
+    date = 10
+    month = 10
+    hour = 5
+    minute = 0
     date_today = int(tn.strftime("%d"))
     month_now = int(tn.strftime("%m"))
     hour_now = int(tn.strftime("%H"))
@@ -52,10 +52,10 @@ def check_time(tn):
     return False
 
 def check_end_time(tn):
-    date = 22
-    month = 9
-    hour = 6
-    minute = 55
+    date = 17
+    month = 10
+    hour = 5
+    minute = 0
     date_today = int(tn.strftime("%d"))
     month_now = int(tn.strftime("%m"))
     hour_now = int(tn.strftime("%H"))
@@ -71,10 +71,10 @@ def check_end_time(tn):
     return False
 
 def check_re_time(tn):
-    date = 22
-    month = 9
-    hour = 6
-    minute = 54
+    date = 14
+    month = 10
+    hour = 5
+    minute = 0
     date_today = int(tn.strftime("%d"))
     month_now = int(tn.strftime("%m"))
     hour_now = int(tn.strftime("%H"))
@@ -284,12 +284,10 @@ def scrape_data(part):
         data.sort(key = lambda a:a[1])
     for p in range(len(data)):
         info.append([p+1,data[p][0],data[p][1],data[p][2],data[p][3],data[p][4],data[p][5],data[p][6],data[p][7],data[p][8],data[p][9]])
-    print(info)
     if check_end_time(datetime.datetime.now()) == False:
         update_final(info)
     else:
         info=get_final()
-    print(info)
 
 @app.route("/")
 def main():
