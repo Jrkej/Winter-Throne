@@ -237,6 +237,8 @@ def initial_rank(user,curr_leaderboard):
     cur.execute("SELECT leaderboard FROM initial_rank")
     l = cur.fetchall()
     con.close()
+    l=l[0]
+    l=l[0]
     l=l.split()
     for p in l:
         p=p.split("|")
