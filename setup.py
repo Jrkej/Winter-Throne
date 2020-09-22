@@ -152,13 +152,7 @@ def createfinalleaderboard():
     print("creating table")
     con = psycopg2.connect(DATABASE_URL, sslmode='require')
     cur=con.cursor()
-    table="""
-        CREATE TABLE final_rank (
-            id TEXT
-            leaderboard TEXT
-        )
-        """
-    cur.execute(table)
+    cur.execute("CREATE TABLE final_rank(id TEXT,leaderboard TEXT)")
     con.commit()
     print("created table")
     cur=con.cursor()
