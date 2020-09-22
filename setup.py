@@ -36,7 +36,7 @@ def check_time(tn):
     date = 22
     month = 9
     hour = 6
-    minute = 47
+    minute = 52
     date_today = int(tn.strftime("%d"))
     month_now = int(tn.strftime("%m"))
     hour_now = int(tn.strftime("%H"))
@@ -55,7 +55,7 @@ def check_end_time(tn):
     date = 22
     month = 9
     hour = 6
-    minute = 50
+    minute = 55
     date_today = int(tn.strftime("%d"))
     month_now = int(tn.strftime("%m"))
     hour_now = int(tn.strftime("%H"))
@@ -74,7 +74,7 @@ def check_re_time(tn):
     date = 22
     month = 9
     hour = 6
-    minute = 49
+    minute = 54
     date_today = int(tn.strftime("%d"))
     month_now = int(tn.strftime("%m"))
     hour_now = int(tn.strftime("%H"))
