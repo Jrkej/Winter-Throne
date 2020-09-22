@@ -36,7 +36,7 @@ def check_time(tn):
     date = 22
     month = 9
     hour = 6
-    minute = 30
+    minute = 41
     date_today = int(tn.strftime("%d"))
     month_now = int(tn.strftime("%m"))
     hour_now = int(tn.strftime("%H"))
@@ -55,7 +55,7 @@ def check_end_time(tn):
     date = 22
     month = 9
     hour = 6
-    minute = 35
+    minute = 43
     date_today = int(tn.strftime("%d"))
     month_now = int(tn.strftime("%m"))
     hour_now = int(tn.strftime("%H"))
@@ -74,7 +74,7 @@ def check_re_time(tn):
     date = 22
     month = 9
     hour = 6
-    minute = 40
+    minute = 45
     date_today = int(tn.strftime("%d"))
     month_now = int(tn.strftime("%m"))
     hour_now = int(tn.strftime("%H"))
@@ -269,6 +269,7 @@ def scrape_data(part):
                 lerank = cgdata['localRank']
                 points = cgdata['score']
                 league = leagueFinder[cgdata['league']['divisionIndex']]
+                league = league.replace(" ","")
                 player = cgdata['codingamer']
                 country = player['countryId']
                 language = cgdata['programmingLanguage']
