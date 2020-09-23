@@ -1,0 +1,164 @@
+    @font-face {
+        font-family: winterKei;
+        src: url(../font/winterKei.ttf);
+    }
+    
+    @font-face {
+        font-family: louis;
+        src: url(../font/louis.ttf);
+    }
+    
+    @font-face {
+        font-family: timer;
+        src: url(../font/Minecraft.ttf);
+    }
+    
+     ::-webkit-scrollbar {
+        width: 15px;
+    }
+    
+     ::-webkit-scrollbar-thumb {
+        background: rgb(0, 58, 167);
+        border-radius: 10px;
+    }
+    
+     ::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 5px rgb(241, 8, 8);
+        border-radius: 10px;
+    }
+    
+     ::-webkit-scrollbar-thumb:hover {
+        background: #555;
+        border-radius: 10px;
+    }
+    
+    #container {
+        height: 100vh;
+        width: 100vw;
+        position: relative;
+        background-position: center;
+        background-image: url(../image/bg.png);
+        background-size: cover;
+        float: None;
+    }
+    
+    #launchdate {
+        font-family: louis;
+        font-size: 0.9vmax;
+        letter-spacing: 0.05em;
+        margin: 0;
+        color: rgb(134, 131, 131);
+        padding-bottom: 2vmax;
+        text-shadow: 2px 2px 15px #c3ddee;
+    }
+    
+    font {
+        font-size: 6vmax;
+        transition: .25s;
+        font-variant: initial;
+        font-family: winterKei;
+        color: white;
+        text-shadow: 0px 0px 20px #b0e3e7;
+    }
+    
+    #intro,
+    #countText {
+        color: white;
+        text-align: center;
+        font-family: louis;
+        font-size: 1.1vmax;
+        line-height: 1.7vmax;
+        letter-spacing: 0.08vmax;
+        padding-left: 10%;
+        padding-right: 10%;
+        padding-bottom: 0.1%;
+        text-shadow: 0px 0px 20px #7cced4;
+    }
+    
+    #countDown {
+        color: #107393;
+        text-align: center;
+        font-family: timer;
+        font-size: 2vmax;
+        line-height: 1.7vmax;
+        letter-spacing: 0.08vmax;
+        padding-left: 10%;
+        padding-right: 10%;
+        padding-bottom: 5%;
+        text-shadow: 0px 0px 20px #7cced4;
+    }
+    
+    h1 {
+        color: silver;
+        font-style: inherit;
+        font-family: serif;
+        font-size: 40px;
+    }
+    
+    h2 {
+        color: rgb(247, 99, 1);
+        font-family: cursive;
+        transition: .25s;
+    }
+    
+    h3 {
+        color: yellow;
+        font-weight: bold;
+        font-style: unset;
+        font-size: 20px;
+    }
+    
+    .box {
+        text-align: center;
+        padding-bottom: 3%;
+    }
+    
+    .box input[type="submit"] {
+        font-family: winterKei;
+        width: 13vmax;
+        overflow: hidden;
+        border: 1px solid transparent;
+        padding: 1.5%;
+        font-size: 0.9vmax;
+        transition: 0.5s;
+        letter-spacing: 3px;
+        border-radius: 5px;
+        background: #81b7da;
+        color: white;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 2vh;
+        outline: None;
+    }
+    
+    .box input[type="submit"]:hover,
+    .box input[type="submit"]:focus {
+        background-color: white;
+        color: #81b7da;
+        outline: None;
+        -webkit-transform: scale(1.2, 1.2);
+        transform: scale(1.2, 1.2);
+    }
+    /* Responsive UI */
+    
+    @media screen and (max-width: 1200px) {
+        #intro {
+            font-size: 1.5vmax;
+        }
+        #launchdate {
+            font-size: 1.5vmax;
+        }
+    }
+    
+    @media screen and (max-width: 900px) {
+        #intro {
+            font-size: 1.7vmax;
+            line-height: 2.5vmax;
+        }
+        #launchdate {
+            font-size: 1.2vmax;
+        }
+        .box input[type="submit"] {
+            font-size: 1vmax;
+        }
+    }
