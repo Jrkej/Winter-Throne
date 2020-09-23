@@ -52,7 +52,7 @@ def check_time(tn):
     return False
 
 def check_end_time(tn):
-    date = 17
+    date = 20
     month = 10
     hour = 5
     minute = 0
@@ -71,7 +71,7 @@ def check_end_time(tn):
     return False
 
 def check_re_time(tn):
-    date = 14
+    date = 15
     month = 10
     hour = 5
     minute = 0
