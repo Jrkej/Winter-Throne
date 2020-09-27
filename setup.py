@@ -365,6 +365,10 @@ def leaderboard():
             end=".Contest Ended."
         print(check_time(datetime.datetime.now()))
         print(check_end_time(datetime.datetime.now()))
+        print("debug")
+        print(info,"-Info")
+        print(msg)
+        print("End debug")
         if check_time(datetime.datetime.now()) == False:
             msg="Bot programming is a suspense.."
             return render_template("leaderboard.html",message="Total registered players = "+str(p),msg=msg)
@@ -390,6 +394,10 @@ def before_leaderboard():
         scrape_data(part)
         bo=bot_programming_getter()
         msg=f"The Contest is About {bo}"
+        print("debug")
+        print(info,"-Info")
+        print(msg)
+        print("End debug")
         return render_template("leaderboard.html",players = info,msg=msg,message=str(datetime.datetime.now()))
     except:
         return render_template("Error.html",code="Error in retrieving users or taking data from CG")
