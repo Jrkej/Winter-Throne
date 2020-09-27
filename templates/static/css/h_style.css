@@ -32,7 +32,7 @@
         width: 100%;
         position: fixed;
         background-position: center;
-        background-image: url(../image/bg.png);
+        background-image: url(../image/leaderboard_bg.png);
         background-size: cover;
         float: None;
     }
@@ -172,18 +172,24 @@
         }
     }
     
-    table,
-    tr {
+    #contestant::-webkit-scrollbar {
+        /* Hide scrollbar for Chrome, Safari and Opera */
+        display: none;
+    }
+    
+    #contestant {
         /* Hide scrollbar for IE, Edge and Firefox */
         overflow: scroll;
         -ms-overflow-style: none;
         /* IE and Edge */
         scrollbar-width: none;
         /* Firefox */
-        margin-right: 2%;
-        margin-left: 2%;
+        padding-right: 1%;
+        padding-left: 1%;
+    }
+    
+    table {
         border: none;
-        margin: auto;
     }
     
     th,
@@ -194,7 +200,7 @@
         padding: 5px;
         text-align: center;
         font-size: 0vmin;
-        border: none
+        border: none;
     }
     
     th {
