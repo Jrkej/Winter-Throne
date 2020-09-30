@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
 
-    <title>Winter Throne</title>
+    <title>Leaderboard</title>
 
     <!--Meta Information about the page-->
     <meta name="Winter Throne" content="An Unofficial contest organized by Jrke with the collaboration of CodinGame" />
@@ -24,6 +24,37 @@
 
     <link rel="stylesheet" href="static/css/h_style.css">
     <link rel="stylesheet" href="static/css/snowflake.css">
+
+    <style>
+        /* width */
+        
+         ::-webkit-scrollbar {
+            width: 1.5vmin;
+            height: 1.5vmin;
+            padding-right: 1%;
+        }
+        /* Track */
+        
+         ::-webkit-scrollbar-track {
+            box-shadow: inset 0 0 5px grey;
+            border-radius: 10px;
+        }
+        /* Handle */
+        
+         ::-webkit-scrollbar-thumb {
+            background: #81b7da;
+            border-radius: 10px;
+        }
+        /* Handle on hover */
+        
+         ::-webkit-scrollbar-thumb:hover {
+            background: #316474;
+        }
+        
+         ::-webkit-scrollbar-corner {
+            margin: 20%
+        }
+    </style>
 
 </head>
 
@@ -234,11 +265,11 @@
             <div class="snow"></div>
         </div>
 
-        <div style="padding-top:7vmax;height:100vh;width:100vw;">
+        <div style="padding-top:7vh;height:100vh;width:100vw;">
 
             <div style="text-align:center; margin:auto;">
 
-            
+
                 <div class="snowflakes" aria-hidden="true">
                     <div class="snowflake">❅</div>
                     <div class="snowflake">❅</div>
@@ -250,42 +281,41 @@
                     <div class="snowflake">❅</div>
                 </div>
 
-                <font style="font-size: 4.75vmax;">Winter Throne Leaderboard</font>
-                <p id = "intro">Leaderboard updates everytime you refresh it.</p>
-                <p id = "intro" style="color:#107393">WE RESERVE ALL RIGHTS TO DISQUALIFY ANY PARTICIPANT BUT WITH A PRIOR REASON.</p>
-                
-                <p id = "intro" style="color:#107393">{{ message }}</h2>
-                
-                <p id = "intro" style="color:#107393">{{ msg }}</h2>
+                <font style="font-size: 4vmax;">Winter Throne Leaderboard</font>
+                <p id="intro">Leaderboard updates everytime you refresh it.</p>
 
-                <div id="contestant">
-                    <table class="box" border="3" align="center" >
-                        <tr>
-                            <th>Rank</th>
-                            <th>User Id</th>
-                            <th>CG Rank</th>
-                            <th>League Rank</th>
-                            <th>Points</th>
-                            <th>League</th>
-                            <th>Language</th>
-                            <th>Country</th>
-                            <th>Ongoing Submission</th>
-                            <th>Submission progress</th>
-                            <th>Rank progress</th>
-                        </tr>
+                <p id="intro" style="color:#316474">{{ message }}</h2>
 
-                        {% for player in players %}
-                        
-                        <tr>
-                            {% for item in player %}
-                            <td>{{ item }}</td>
-                            {% endfor %}
-                        </tr>
-                        
-                        {% endfor %}
-                    
-                    </table>
-                </div>
+                    <p id="intro" style="color:#81b7da">{{ msg }}</h2>
+
+                        <div id="contestant">
+                            <table class="box" border="3" align="center">
+                                <tr>
+                                    <th>Rank</th>
+                                    <th>User Id</th>
+                                    <th>CG Rank</th>
+                                    <th>League Rank</th>
+                                    <th>Points</th>
+                                    <th>League</th>
+                                    <th>Language</th>
+                                    <th>Country</th>
+                                    <th>Ongoing Submission</th>
+                                    <th>Submission progress</th>
+                                    <th>Rank progress</th>
+                                </tr>
+
+                                {% for player in players %}
+
+                                <tr>
+                                    {% for item in player %}
+                                    <td>{{ item }}</td>
+                                    {% endfor %}
+                                </tr>
+
+                                {% endfor %}
+
+                            </table>
+                        </div>
 
             </div>
 
