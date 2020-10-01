@@ -331,7 +331,8 @@ def registeration():
         try:
             vote = request.form['vote']
         except:
-            pass
+            if check_time(datetime.datetime.now()) == False:
+                return render_template("Error.html",code = f"{name} you didn't vote.")
         try:
             all_p=retrieveUsers()
             new=True
