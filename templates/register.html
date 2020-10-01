@@ -260,13 +260,13 @@
                         To appear on the leaderboard, register here
                     </p>
 
-                    <input type="text" name="id" placeholder="Enter your CodinGame NickName"> {% if voting == False %}
+                    <input type="text" name="id" placeholder="Enter your CodinGame NickName"> 
                     
                     <p  id="semi_intro" style="color:#4ea1bd; padding-bottom:1.5vmax">
                         If you don't have a CG account yet,
                         create it here -<a href="https://www.codingame.com/home" target="_blank"> Codingame.com </a>
                     </p>
-                    
+                    {% if voting == False %}
                     <p  id="semi_intro" style="color:#4ea1bd;">
                         Pick your choice
                     </p>
@@ -283,12 +283,12 @@
                         </div>
                         
                         <div style = "margin: 0 auto;">
-                            <input type="radio" name="vote" placeholder="" value="a-code-of-ice-and-fire" checked id="a">
-                            <label for="a"><header>A code of Ice and Fire</header></label> {% endif %}
+                            <input type="radio" name="vote" placeholder="" value="a-code-of-ice-and-fire" id="a">
+                            <label for="a"><header>A code of Ice and Fire</header></label> 
                         </div>
 
                     </div>
-
+                    {% endif %}
                     <input type="submit" name="sub" value="submit">
 
                 </form>
