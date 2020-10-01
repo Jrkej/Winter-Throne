@@ -367,7 +367,6 @@ def leaderboard():
         print(check_time(datetime.datetime.now()))
         print(check_end_time(datetime.datetime.now()))
         print("debug")
-        print(info,"-Info")
         print(msg)
         print("End debug")
         if check_time(datetime.datetime.now()) == False:
@@ -396,7 +395,6 @@ def before_leaderboard():
         bo=bot_programming_getter()
         msg=f"The Contest is About {bo}"
         print("debug")
-        print(info,"-Info")
         print(msg)
         print("End debug")
         return render_template("leaderboard.html",players = info,msg=msg,message=str(datetime.datetime.now()))
