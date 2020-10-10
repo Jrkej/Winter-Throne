@@ -289,6 +289,45 @@ def scrape_data(part):
     else:
         info=get_final()
 
+def scrape_data_progression(part):
+    participants=[]
+    for n in part:
+        participants.append(n[0])
+    ret=[]
+    data=[]
+    leagueFinder = {0:'wood 2', 1:'wood 1', 2:'bronze', 3:'silver', 4:'gold', 5:'legend'}
+    bot_programming=bot_programming_getter()
+    print(bot_programming)
+    if bot_programming == "a-code-of-ice-and-fire":
+        leagueFinder = {0:'wood 3', 1:'wood 2', 2:'wood 1', 3:'bronze', 4:'silver', 5:'gold',6:'legend'}
+    leaderboard=get_rankings(bot_programming)
+    if check_time(datetime.datetime.now()) == False:
+        update_first()
+    for cgdata in leaderboard:
+        try:
+            if cgdata['pseudo'] in participants or cgdata['pseudo'].lower() in participants:
+                username = cgdata['pseudo']
+                cgrank = cgdata['rank']
+                lerank = cgdata['localRank']
+                points = cgdata['score']
+                league = leagueFinder[cgdata['league']['divisionIndex']]
+                league = league.replace(" ","")
+                player = cgdata['codingamer']
+                country = player['countryId']
+                language = cgdata['programmingLanguage']
+                sub="No"
+                progress = cgdata['percentage']
+                if progress != 100:
+                    sub="yes"
+                rank_progress=initial_rank(cgdata['pseudo'],leaderboard)-cgrank
+                data.append([username,cgrank,lerank,points,league,language,country,sub,progress,rank_progress])
+        except Exception as e:
+            print(e)
+        data.sort(key = lambda a:a[9])
+    for p in range(len(data)):
+        ret.append([p+1,data[p][0],data[p][1],data[p][2],data[p][3],data[p][4],data[p][5],data[p][6],data[p][7],data[p][8],data[p][9]])
+    return ret[::-1]
+
 @app.route("/")
 def main():
     try:
@@ -317,8 +356,10 @@ def home():
         log = request.form['sub']
         if log == "Register":
             return redirect(url_for("registeration"))
-        else:
+        elif log == "Leaderboard":
             return redirect(url_for("leaderboard"))
+        else:
+            return redirect(url_for("progression"))
 
 @app.route("/registeration",methods=["GET","POST"])
 def registeration():
@@ -373,6 +414,28 @@ def leaderboard():
             msg="Bot programming is a suspense.."
             return render_template("leaderboard.html",message="Total registered players = "+str(p),msg=msg)
         return render_template("leaderboard.html",players = info,message="Total registered players = "+str(p)+end,msg=msg)
+    except Exception as e:
+        return render_template("Error.html",code=f"Error in retrieving users or taking data from CG,error = {e}")
+
+@app.route("/progression")
+def progression():
+    try:
+        part=retrieveUsers()
+        fo = scrape_data_progression(part)
+        msg=f"Leaderboard bassed on Progression"
+        p=len(set(part))
+        end=""
+        if check_end_time(datetime.datetime.now()):
+            end=".Contest Ended."
+        print(check_time(datetime.datetime.now()))
+        print(check_end_time(datetime.datetime.now()))
+        print("debug")
+        print(msg)
+        print("End debug")
+        if check_time(datetime.datetime.now()) == False:
+            msg="Bot programming is a suspense.."
+            return render_template("leaderboard.html",message="Total registered players = "+str(p),msg=msg)
+        return render_template("leaderboard.html",players = fo,message="Total registered players = "+str(p)+end,msg=msg)
     except Exception as e:
         return render_template("Error.html",code=f"Error in retrieving users or taking data from CG,error = {e}")
 
