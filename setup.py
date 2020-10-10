@@ -323,10 +323,10 @@ def scrape_data_progression(part):
                 data.append([username,cgrank,lerank,points,league,language,country,sub,progress,rank_progress])
         except Exception as e:
             print(e)
-        data.sort(key = lambda a:a[9])
+        data.sort(key = lambda a:a[9]*-1)
     for p in range(len(data)):
         ret.append([p+1,data[p][0],data[p][1],data[p][2],data[p][3],data[p][4],data[p][5],data[p][6],data[p][7],data[p][8],data[p][9]])
-    return ret[::-1]
+    return ret
 
 @app.route("/")
 def main():
