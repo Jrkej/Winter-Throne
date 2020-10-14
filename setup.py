@@ -1,3 +1,4 @@
+  
 import os
 import psycopg2
 import datetime
@@ -289,45 +290,12 @@ def scrape_data(part):
     else:
         info=get_final()
 
-def scrape_data_progression(part):
-    participants=[]
-    for n in part:
-        participants.append(n[0])
-    ret=[]
-    data=[]
-    leagueFinder = {0:'wood 2', 1:'wood 1', 2:'bronze', 3:'silver', 4:'gold', 5:'legend'}
-    bot_programming=bot_programming_getter()
-    print(bot_programming)
-    if bot_programming == "a-code-of-ice-and-fire":
-        leagueFinder = {0:'wood 3', 1:'wood 2', 2:'wood 1', 3:'bronze', 4:'silver', 5:'gold',6:'legend'}
-    leaderboard=get_rankings(bot_programming)
-    if check_time(datetime.datetime.now()) == False:
-        update_first()
-    for cgdata in leaderboard:
-        try:
-            if cgdata['pseudo'] in participants or cgdata['pseudo'].lower() in participants:
-                username = cgdata['pseudo']
-                cgrank = cgdata['rank']
-                lerank = cgdata['localRank']
-                points = cgdata['score']
-                league = leagueFinder[cgdata['league']['divisionIndex']]
-                league = league.replace(" ","")
-                player = cgdata['codingamer']
-                country = player['countryId']
-                language = cgdata['programmingLanguage']
-                sub="No"
-                progress = cgdata['percentage']
-                if progress != 100:
-                    sub="yes"
-                rank_progress=initial_rank(cgdata['pseudo'],leaderboard)-cgrank
-                data.append([username,cgrank,lerank,points,league,language,country,sub,progress,rank_progress])
-        except Exception as e:
-            print(e)
-        data.sort(key = lambda a:a[9]*-1)
-    for p in range(len(data)):
-        ret.append([p+1,data[p][0],data[p][1],data[p][2],data[p][3],data[p][4],data[p][5],data[p][6],data[p][7],data[p][8],data[p][9]])
-    return ret
-
+def scrape_data_progression(fo):
+    pr = fo
+    pr.sort(key = lambda a: a[10]*-1)
+    for i in range(len(pr)):
+        pr[i][0] = i+1
+    return pr
 @app.route("/")
 def main():
     try:
@@ -421,7 +389,8 @@ def leaderboard():
 def progression():
     try:
         part=retrieveUsers()
-        fo = scrape_data_progression(part)
+        scrape_data(part)
+        fo = scrape_data_progression(info)
         msg=f"Leaderboard bassed on Progression"
         p=len(set(part))
         end=""
