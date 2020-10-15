@@ -264,7 +264,7 @@ def scrape_data(part):
         update_first()
     for cgdata in leaderboard:
         try:
-            if cgdata['pseudo'] in participants or cgdata['pseudo'].lower() in participants:
+            if (cgdata['pseudo'] in participants or cgdata['pseudo'].lower() in participants) and cgdata['pseudo'] != "aaaa111":
                 username = cgdata['pseudo']
                 cgrank = cgdata['rank']
                 lerank = cgdata['localRank']
