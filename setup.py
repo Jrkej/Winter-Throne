@@ -241,6 +241,7 @@ def initial_rank(user,curr_leaderboard):
     l=l[0]
     l=l[0]
     l=l.split()
+    print(len(l),"len")
     for p in l:
         p=p.split("|")
         if p[0] == user:
