@@ -241,7 +241,6 @@ def initial_rank(user,curr_leaderboard):
     l=l[0]
     l=l[0]
     l=l.split()
-    print(len(l),"len")
     for p in l:
         p=p.split("|")
         if p[0] == user:
@@ -382,7 +381,6 @@ def leaderboard():
         if check_time(datetime.datetime.now()) == False:
             msg="Bot programming is a suspense.."
             return render_template("leaderboard.html",message="Total registered players = "+str(p),msg=msg)
-        print(info)
         return render_template("leaderboard.html",players = info,message="Total registered players = "+str(p)+end,msg=msg)
     except Exception as e:
         return render_template("Error.html",code=f"Error in retrieving users or taking data from CG,error = {e}")
