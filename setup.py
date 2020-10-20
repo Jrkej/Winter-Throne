@@ -292,7 +292,7 @@ def scrape_data(part):
 
 def scrape_data_progression(fo):
     pr = fo
-    pr.sort(key = lambda a: a[10]*-1)
+    pr.sort(key = lambda a: int(a[10])*-1)
     for i in range(len(pr)):
         pr[i][0] = i+1
     return pr
