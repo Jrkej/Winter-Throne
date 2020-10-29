@@ -48,7 +48,7 @@ def check_time(tn):
     date_today+=month_now*30
     hour_now+=date_today*24
     minute_now+=hour_now*60
-    if minute <= minute_now:
+    if minute <= minute_now and int(tn.strftime("%y")) == 20:
         return True
     return False
 
@@ -67,7 +67,7 @@ def check_end_time(tn):
     date_today+=month_now*30
     hour_now+=date_today*24
     minute_now+=hour_now*60
-    if minute <= minute_now:
+    if minute <= minute_now and int(tn.strftime("%y")) == 20:
         return True
     return False
 
@@ -86,7 +86,7 @@ def check_re_time(tn):
     date_today+=month_now*30
     hour_now+=date_today*24
     minute_now+=hour_now*60
-    if minute <= minute_now:
+    if minute <= minute_now and int(tn.strftime("%y")) == 20:
         return True
     return False
 
